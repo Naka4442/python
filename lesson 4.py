@@ -1,24 +1,36 @@
-copybook = 0.2
-stack    = 3.7
-box      = 70
-print("Стоимость одной тетради = " + str(copybook) + "$")
-print("Стоимость одной пачки (20 тетрадей) = " + str(stack) + "$")
-print("Выгода при покупке пачки = " + str(round(copybook*20 - stack, 1)) + "$")
-print("Стоимость одной коробки (20 пачек) = " + str(box) + "$")
-print("Выгода при покупке коробки = " + str(stack*20 - box) + "$")
-needs = int(input("Сколько вы хотите купить тетрадей?\n>> "))
-if(needs >= 400):
-    boxes = int(needs/400)
-    stacks = int((needs - boxes*400)/20)
-    copybooks = int(needs - boxes*400 - stacks*20)
-    print("Выгоднее всего купить: коробки - " + str(boxes) + ", пачки - " + str(stacks) + ", тетради - " + str(copybooks))
-    print("Это будет стоить " + str(box*boxes + stacks*stack + copybooks*copybook) + "$")
-    print("Вы сэкономите " + str(copybook*needs - (box*boxes + stacks*stack + copybooks*copybook)) + "$")
-elif(needs >= 20 and needs < 400):
-    stacks = int(needs/20)
-    copybooks = int(needs%20)
-    print("Выгоднее всего купить: пачки - " + str(stacks) + ", тетради - " + str(copybooks))
-    print("Это будет стоить " + str(stacks*stack + copybooks*copybook) + "$")
-    print("Вы сэкономите " + str(copybook*needs - (stacks*stack + copybooks*copybook)) + "$")
-else:
-    print("Тетради обойдутся вам в " + str(needs*copybook) + "$")
+# numbers = []
+# for i in range(10):
+#     numbers.append(int(input("Введите число\n>> ")))
+# summ = 0
+# for number in numbers:
+#     summ += number
+# print("Среднее арифметическое чисел = " + str(summ/len(numbers)))
+one   = [1, 2, 3, 4, 4, 5]
+two   = (1, 2, 3, 4, 4, 5)
+three = {1, 2, 3, 4, 4, 5}
+four  = frozenset((1, 2, 3, 4, 4, 5))
+# slovar = dict((("cat", "кот"), ("dog", "собака"), ("fox", "лиса")))
+slovar = {
+    "а" : "a",
+    "б" : "b",
+    "в" : "v",
+    "г" : "g",
+    "д" : "d",
+    "е" : "e",
+    "и" : "i",
+    "н" : "n",
+    "о" : "o",
+    "п" : "p",
+    "м" : "m",
+    "р" : "r"
+}
+
+print(slovar)
+string = input("Введите слово")
+newString = ""
+for s in string:
+    if s in slovar.keys():
+        newString += slovar[s]
+    else:
+        newString += s
+print(newString)
